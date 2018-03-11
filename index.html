@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="PairGameApp">
+  <head>
+	<meta charset="utf-8">
+	<title>Memory Game</title>
+	<link rel="stylesheet" href="css/app.css">
+	<script src="lib/angular/angular.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/game.js"></script>
+  </head>
+  <body  ng-controller="GameCtrl">
+    <div>Pairs left to match: {{game.unmatchedPairs}}</div>
+	<div>How many tries: {{game.howManyTries}}</div>
+	<div>
+		<label>Set Deck Size:</label>
+		<input type="number" name="quantity" min="6" max="20" ng-model="tileSize">
+		<input ng-click="SetDeckSize(tileSize)" type="submit">
+	</div>
+	<div>
+		<label>Reset Game:</label>
+		<input ng-click="RestartGame()" type="Reset">
+	</div>
+	<div>Matching: {{game.firstPick.title}}</div>
+	<table>
+		<tr ng-repeat="row in game.grid">
+			<td ng-repeat="tile in row" ng-click="game.flipTile(tile)">
+			  <mg-card tile="tile"></mg-card>
+			</td>
+		</tr>
+	</table>
+  <div class="message">{{game.message}}</div>
+  </body>
+</html>

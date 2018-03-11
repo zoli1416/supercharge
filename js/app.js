@@ -9,9 +9,14 @@ var tileNames = ['angular', 'd3', 'jenkins', 'postcss', 'react', 'redux',
 
 function GetBestResultByDeckSize(deckSize, newResult){
 	  var result = "Best result is ";
-	  if(bestResult[deckSize] && bestResult[deckSize] > newResult){
-		bestResult[deckSize] = newResult;
-		result += "Yours congrats! Your number is: newResult";
+	  if(bestResult.length == 0)
+	  {
+		  bestResult[deckSize] = newResult;
+		  result += bestResult[deckSize];
+	  }
+	  else if(bestResult[deckSize] && bestResult[deckSize] > newResult){
+		  bestResult[deckSize] = newResult;
+		  result += "Yours congrats! Your number is: newResult";
 	  }
 	  else
 	  {

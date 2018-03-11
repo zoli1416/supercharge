@@ -14,10 +14,10 @@ Tile.prototype.flip = function() {
 
 function Game(tileNames, tileSize) {
   var tileDeck = makeDeck(tileNames, tileSize);
+  this.unmatchedPairs = tileDeck.length / 2;
 
   this.grid = makeGrid(tileDeck, tileSize);
   this.message = Game.MESSAGE_CLICK;
-  this.unmatchedPairs = tileNames.length;
   this.howManyTries = 0;
 
   this.flipTile = function(tile) {
